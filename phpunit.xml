@@ -1,0 +1,12 @@
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         stopOnFailure="true"
+         colors="true"
+         columns="900">
+    <testsuites>
+        <testsuite name="NetRivet WordPress Http Test Suite">
+            <directory suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
