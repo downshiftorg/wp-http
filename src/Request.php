@@ -22,10 +22,10 @@ class Request
      * @param ResponseFactory $factory
      * @param WP_Http         $wpHttp
      */
-    public function __construct(ResponseFactory $factory, WP_Http $wpHttp)
+    public function __construct(ResponseFactory $factory = null, WP_Http $wpHttp = null)
     {
-        $this->factory = $factory;
-        $this->wpHttp  = $wpHttp;
+        $this->factory = $factory ? $factory : new ResponseFactory();
+        $this->wpHttp  = $wpHttp  ? $wpHttp  : new WP_Http();
     }
 
     /**
