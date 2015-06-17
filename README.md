@@ -5,9 +5,11 @@ Provides a consistent, object-oriented API for making HTTP requests and receivin
 ## Usage
 
 ```php
-namespace NetRivet\WordPress\Http;
+<?php
 
-$request  = new Request(new ResponseFactory(), new \WP_Http());
+use NetRivet\WordPress\Http\Request;
+
+$request  = new Request();
 $response = $request->get('http://api.yolo.com/status');
 
 $response->getStatusCode(); // (int)    200
@@ -28,6 +30,14 @@ $request->postJson('http://api.yolo.com/neckbeard', [
     'foo' => 'bar',
     'jim' => 'jam',
 ]);
+```
+
+## Installation
+
+Install the latest version with
+
+```
+$ composer require netrivet/wp-http
 ```
 
 ## Tests
