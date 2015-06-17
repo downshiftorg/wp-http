@@ -16,9 +16,12 @@
         }
     ],
     "autoload": {
-      "psr-4": {
-        "NetRivet\\WordPress\\Http\\": "src/"
+        "psr-4": {
+            "NetRivet\\WordPress\\Http\\": "src/"
       },
-      "files": ["tests/WP_Http.php"]
+        "files": [
+           "tests/WP_Http.php",
+           "tests/WP_Error.php"
+        ]
     }
 }

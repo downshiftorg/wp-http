@@ -14,10 +14,9 @@ class Response
     /**
      * @param string  $body
      * @param integer $statusCode
-     * @param array   $headers
      * @throws \InvalidArgumentException
      */
-    public function __construct($body = '', $statusCode = 200, array $headers = [])
+    public function __construct($body = '', $statusCode = 200)
     {
         if (! $this->statusCodeValid($statusCode)) {
             throw new \InvalidArgumentException('Invalid status code');
@@ -28,10 +27,7 @@ class Response
     }
 
     /**
-     * Gets the response status code.
-     *
-     * The status code is a 3-digit integer result code of the server's attempt
-     * to understand and satisfy the request.
+     * Gets the response status code
      *
      * @return int
      */
