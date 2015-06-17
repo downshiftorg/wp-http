@@ -53,7 +53,13 @@ class Response
      */
     public function json()
     {
-        $json = json_decode(strval($this->getBody()), true);
+        $body = strval($this->getBody());
+
+        if ('' === $body) {
+            return [];
+        }
+
+        $json = json_decode($body, true);
 
         if (!is_array($json)) {
             throw new \UnexpectedValueException('Body not json-encoded');

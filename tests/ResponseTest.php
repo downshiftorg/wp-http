@@ -54,4 +54,11 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(['foo' => 'bar'], $json);
     }
+
+
+    public function testJsonReturnsEmptyArrayForEmptyBody()
+    {
+        $response = new Response();
+        $this->assertSame([], $response->json());
+    }
 }
