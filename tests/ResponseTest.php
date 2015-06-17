@@ -61,4 +61,18 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $response = new Response();
         $this->assertSame([], $response->json());
     }
+
+
+    public function testJsonStringIsJson()
+    {
+        $response = new Response('["foo"]');
+        $this->assertTrue($response->isJson());
+    }
+
+
+    public function testNonJsonStringIsNotJson()
+    {
+        $response = new Response('meat on bone');
+        $this->assertFalse($response->isJson());
+    }
 }

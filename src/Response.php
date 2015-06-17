@@ -49,9 +49,39 @@ class Response
     /**
      * Get json-decoded body
      *
+     * @throws \UnexpectedValueException
      * @return array
      */
     public function json()
+    {
+        $json = $this->getBodyAsJson();
+
+        if (!is_array($json)) {
+            throw new \UnexpectedValueException('Body not json-encoded');
+        }
+
+        return $json;
+    }
+
+    /**
+     * Is the response body json-encoded
+     *
+     * Empty body string is considered json and
+     * will return an empty array from $this->json()
+     *
+     * @return boolean
+     */
+    public function isJson()
+    {
+        return is_array($this->getBodyAsJson());
+    }
+
+    /**
+     * Retrieve a json-decoded array representation of the body content
+     *
+     * @return array|null
+     */
+    protected function getBodyAsJson()
     {
         $body = strval($this->getBody());
 
@@ -59,13 +89,7 @@ class Response
             return [];
         }
 
-        $json = json_decode($body, true);
-
-        if (!is_array($json)) {
-            throw new \UnexpectedValueException('Body not json-encoded');
-        }
-
-        return $json;
+        return json_decode($body, true);
     }
 
     /**
