@@ -1,4 +1,4 @@
-# WordPress Http Request/Response
+# WordPress Http Request/Response [![Build Status](https://travis-ci.org/netrivet/wp-http.svg?branch=master)](https://travis-ci.org/netrivet/wp-http)
 
 Provides a consistent, object-oriented API for making HTTP requests and receiving responses in the WordPress ecosystem. Provides a thin wrapper around the `WP_Http` class and then normalizes the return values of the internal `WP_Http::request` method to return a Psr7-ish, Guzzle-ish, modern-ish `Response` object, which does not exist in WordPress.
 
