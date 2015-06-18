@@ -5,7 +5,7 @@ namespace NetRivet\WordPress\Http;
 use WP_Http;
 
 
-class Request
+class Request implements RequestInterface
 {
 
     /**
@@ -29,11 +29,7 @@ class Request
     }
 
     /**
-     * Send an http GET request
-     *
-     * @param  string $uri
-     * @param  array  $params
-     * @return NetRivet\WordPress\Http\Response
+     * {@inheritdoc}
      */
     public function get($uri, array $params = [])
     {
@@ -41,11 +37,7 @@ class Request
     }
 
     /**
-     * Send an http POST request
-     *
-     * @param  string $uri
-     * @param  array  $params
-     * @return NetRivet\WordPress\Http\Response
+     * {@inheritdoc}
      */
     public function post($uri, array $params = [])
     {
@@ -53,11 +45,7 @@ class Request
     }
 
     /**
-     * Send a json-encoded http POST request
-     *
-     * @param  string $uri
-     * @param  array  $data
-     * @return NetRivet\WordPress\Http\Response
+     * {@inheritdoc}
      */
     public function postJson($uri, array $data)
     {
@@ -73,12 +61,7 @@ class Request
     }
 
     /**
-     * Send an http request
-     *
-     * @param  string $method
-     * @param  string $uri
-     * @param  array  $params
-     * @return NetRivet\WordPress\Http\Response
+     * {@inheritdoc}
      */
     public function request($method, $uri, array $params = [])
     {

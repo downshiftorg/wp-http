@@ -3,7 +3,7 @@
 namespace NetRivet\WordPress\Http;
 
 
-class Response
+class Response implements ResponseInterface
 {
 
     /**
@@ -27,9 +27,7 @@ class Response
     }
 
     /**
-     * Gets the response status code
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getStatusCode()
     {
@@ -37,9 +35,7 @@ class Response
     }
 
     /**
-     * Gets the body of the response
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getBody()
     {
@@ -47,10 +43,7 @@ class Response
     }
 
     /**
-     * Get json-decoded body
-     *
-     * @throws \UnexpectedValueException
-     * @return array
+     * {@inheritdoc}
      */
     public function json()
     {
@@ -64,12 +57,7 @@ class Response
     }
 
     /**
-     * Is the response body json-encoded
-     *
-     * Empty body string is considered json and
-     * will return an empty array from $this->json()
-     *
-     * @return boolean
+     * {@inheritdoc}
      */
     public function isJson()
     {
