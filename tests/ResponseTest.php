@@ -75,4 +75,14 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $response = new Response('meat on bone');
         $this->assertFalse($response->isJson());
     }
+
+    public function testJsonRemovesBomBeforeDecoding()
+    {
+        $BOM = pack('H*','EFBBBF');
+        $encoded = $BOM . json_encode(['foo' => 'bar']);
+
+        $response = new Response($encoded);
+
+        $this->assertEquals(['foo' => 'bar'], $response->json());
+    }
 }

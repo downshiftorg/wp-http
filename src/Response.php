@@ -77,7 +77,7 @@ class Response implements ResponseInterface
             return [];
         }
 
-        return json_decode($body, true);
+        return json_decode($this->removeUtf8Bom($body), true);
     }
 
     /**
@@ -93,5 +93,18 @@ class Response implements ResponseInterface
         }
 
         return $statusCode >= 100 && $statusCode < 600;
+    }
+
+    /**
+     * Remove UTF8 Byte-Order-Mark (BOM) which prevents json-decoding
+     *
+     * @param  string $text
+     * @return string
+     */
+    protected function removeUtf8Bom($text)
+    {
+        $bom = pack('H*','EFBBBF');
+        $text = preg_replace("/^$bom/", '', $text);
+        return $text;
     }
 }
