@@ -2,10 +2,8 @@
 
 namespace NetRivet\WordPress\Http;
 
-
 class ResponseFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @var ResponseFactory
      */
@@ -17,14 +15,12 @@ class ResponseFactoryTest extends \PHPUnit_Framework_TestCase
         $this->factory = new ResponseFactory();
     }
 
-
     public function testUnexpectedInputCreates500Response()
     {
         $response = $this->factory->create(111);
 
         $this->assertSame(500, $response->getStatusCode());
     }
-
 
     public function testArrayMissingResponseCodeCreates500Response()
     {
@@ -33,7 +29,6 @@ class ResponseFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(500, $response->getStatusCode());
     }
 
-
     public function testNormalWordpressArrayConvertedCorrectly()
     {
         $response = $this->factory->create(['body' => 'the body', 'response' => ['code' => '200']]);
@@ -41,7 +36,6 @@ class ResponseFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(200, $response->getStatusCode());
         $this->assertSame('the body', $response->getBody());
     }
-
 
     public function testReturns500ResponseWithErrorsWhenInputIsWordpressErrorObject()
     {

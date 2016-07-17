@@ -2,10 +2,8 @@
 
 namespace NetRivet\WordPress\Http;
 
-
 interface ResponseInterface
 {
-
     /**
      * Gets the response status code
      *

@@ -21,14 +21,12 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         new Response('', 999);
     }
 
-
     public function testReturnsStatusCode()
     {
         $response = new Response('', 201);
 
         $this->assertSame(201, $response->getStatusCode());
     }
-
 
     public function testGetBodyReturnsBody()
     {
@@ -46,7 +44,6 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $response->json();
     }
 
-
     public function testJsonReturnsJsonDecodedBody()
     {
         $response = new Response(json_encode(['foo' => 'bar']));
@@ -55,20 +52,17 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(['foo' => 'bar'], $json);
     }
 
-
     public function testJsonReturnsEmptyArrayForEmptyBody()
     {
         $response = new Response();
         $this->assertSame([], $response->json());
     }
 
-
     public function testJsonStringIsJson()
     {
         $response = new Response('["foo"]');
         $this->assertTrue($response->isJson());
     }
-
 
     public function testNonJsonStringIsNotJson()
     {
@@ -84,5 +78,13 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $response = new Response($encoded);
 
         $this->assertEquals(['foo' => 'bar'], $response->json());
+    }
+
+    public function testPassingArrayForBodyMakesResponseJson()
+    {
+        $response = new Response(['foo' => 'bar']);
+
+        $this->assertTrue($response->isJson());
+        $this->assertSame(['foo' => 'bar'], $response->json());
     }
 }

@@ -4,10 +4,8 @@ namespace NetRivet\WordPress\Http;
 
 use WP_Http;
 
-
 class Request implements RequestInterface
 {
-
     /**
      * @var ResponseFactory
      */
