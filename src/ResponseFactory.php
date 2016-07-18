@@ -4,10 +4,8 @@ namespace NetRivet\WordPress\Http;
 
 use WP_Error;
 
-
 class ResponseFactory
 {
-
     /**
      * Create a Response object from mixed WP_Http::request return values
      *

@@ -4,7 +4,6 @@ namespace NetRivet\WordPress\Http;
 
 use WP_Http;
 
-
 interface RequestInterface
 {
     /**

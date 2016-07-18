@@ -2,17 +2,15 @@
 
 namespace NetRivet\WordPress\Http;
 
-
 class Response implements ResponseInterface
 {
-
     /**
      * @var int
      */
     protected $statusCode;
 
     /**
-     * @param string  $body
+     * @param string|array $body
      * @param integer $statusCode
      * @throws \InvalidArgumentException
      */
@@ -20,6 +18,10 @@ class Response implements ResponseInterface
     {
         if (! $this->statusCodeValid($statusCode)) {
             throw new \InvalidArgumentException('Invalid status code');
+        }
+
+        if (is_array($body)) {
+            $body = json_encode($body);
         }
 
         $this->body = $body;

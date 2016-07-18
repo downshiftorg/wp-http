@@ -2,7 +2,6 @@
 
 namespace NetRivet\WordPress\Http;
 
-
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -20,14 +19,12 @@ class RequestTest extends \PHPUnit_Framework_TestCase
      */
     protected $request;
 
-
     public function setUp()
     {
         $this->wpHttp  = $this->prophesize('WP_Http');
         $this->factory = $this->prophesize('NetRivet\WordPress\Http\ResponseFactory');
         $this->request = new Request($this->factory->reveal(), $this->wpHttp->reveal());
     }
-
 
     public function testGetPassesArgsOnToWordpressClass()
     {
@@ -36,14 +33,12 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->request->get('http://foo.com', ['bar']);
     }
 
-
     public function testPostPassesArgsOnToWordpressClass()
     {
         $this->wpHttp->post('http://foo.com', ['bar'])->shouldBeCalled();
 
         $this->request->post('http://foo.com', ['bar']);
     }
-
 
     public function testPostJsonSetsHeadersAndJsonEncodesDataParam()
     {
@@ -57,7 +52,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $this->request->postJson('uri', ['foo' => 'bar']);
     }
-
 
     public function testReturnsResultOfPassingWpDataToFactoryCreate()
     {
