@@ -18,7 +18,7 @@ class Request implements RequestInterface
 
     /**
      * @param ResponseFactory $factory
-     * @param WP_Http         $wpHttp
+     * @param WP_Http $wpHttp
      */
     public function __construct(ResponseFactory $factory = null, WP_Http $wpHttp = null)
     {
@@ -45,15 +45,15 @@ class Request implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function postJson($uri, array $data)
+    public function postJson($uri, array $body, array $params = [])
     {
-        $data = $this->wpHttp->post($uri, [
+        $data = $this->wpHttp->post($uri, array_merge($params, [
             'headers' => [
                 'Accept'       => 'application/json',
                 'Content-Type' => 'application/json',
             ],
-            'body' => json_encode($data),
-        ]);
+            'body' => json_encode($body),
+        ]));
 
         return $this->factory->create($data);
     }

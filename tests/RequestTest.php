@@ -61,4 +61,18 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $this->request->get('uri');
     }
+
+    public function testPostJsonAllowsPassingExtraParamsToWpHttpPost()
+    {
+        $this->wpHttp->post('uri', [
+            'headers' => [
+                'Accept'       => 'application/json',
+                'Content-Type' => 'application/json',
+            ],
+            'body' => json_encode(['foo' => 'bar']),
+            'jim' => 'jam',
+        ])->shouldBeCalled();
+
+        $this->request->postJson('uri', ['foo' => 'bar'], ['jim' => 'jam']);
+    }
 }
