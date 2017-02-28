@@ -40,6 +40,13 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->request->post('http://foo.com', ['bar']);
     }
 
+    public function testNonGetPostMethodsUseWordPressRequestMethod()
+    {
+        $this->wpHttp->request('http://foo.com', ['method' => 'PURGE'])->shouldBeCalled();
+
+        $this->request->request('purge', 'http://foo.com');
+    }
+
     public function testPostJsonSetsHeadersAndJsonEncodesDataParam()
     {
         $this->wpHttp->post('uri', [
