@@ -8,4 +8,5 @@ class WP_Http
 {
     public function get(){}
     public function post(){}
+    public function request() {}
 }

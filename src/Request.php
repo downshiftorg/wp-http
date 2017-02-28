@@ -63,6 +63,11 @@ class Request implements RequestInterface
      */
     public function request($method, $uri, array $params = [])
     {
+        if (! method_exists($this->wpHttp, $method)) {
+            $params['method'] = strtoupper($method);
+            $method = 'request';
+        }
+
         $data = call_user_func([$this->wpHttp, $method], $uri, $params);
 
         return $this->factory->create($data);
