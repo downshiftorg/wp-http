@@ -1,6 +1,6 @@
 <?php
 
-namespace NetRivet\WordPress\Http;
+namespace DownShift\WordPress\Http;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +22,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->wpHttp  = $this->prophesize('WP_Http');
-        $this->factory = $this->prophesize('NetRivet\WordPress\Http\ResponseFactory');
+        $this->factory = $this->prophesize('DownShift\WordPress\Http\ResponseFactory');
         $this->request = new Request($this->factory->reveal(), $this->wpHttp->reveal());
     }
 

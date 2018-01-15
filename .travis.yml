@@ -4,7 +4,7 @@ php:
   - 5.6
 
 notifications:
-    slack: netrivet:iPuazhi14R86Oh753YLQppb7
+    slack: downshiftllc:iPuazhi14R86Oh753YLQppb7
 
 install: composer install --no-interaction --prefer-source
 
