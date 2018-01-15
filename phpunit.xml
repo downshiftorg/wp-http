@@ -5,7 +5,7 @@
          colors="true"
          columns="900">
     <testsuites>
-        <testsuite name="NetRivet WordPress Http Test Suite">
+        <testsuite name="DownShift WordPress Http Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>

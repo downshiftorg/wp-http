@@ -1,5 +1,5 @@
 {
-    "name": "netrivet/wp-http",
+    "name": "downshiftorg/wp-http",
     "description": "A psr7-ish, Guzzle-ish, set of request/response classes for WordPress.",
     "require": {
         "php": ">=5.3.0"
@@ -12,12 +12,12 @@
     "authors": [
         {
             "name": "Jared Henderson",
-            "email": "jared@netrivet.com"
+            "email": "jared@pro.photo"
         }
     ],
     "autoload": {
         "psr-4": {
-            "NetRivet\\WordPress\\Http\\": "src/"
+            "DownShift\\WordPress\\Http\\": "src/"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace NetRivet\WordPress\Http;
+namespace DownShift\WordPress\Http;
 
 class ResponseFactoryTest extends \PHPUnit_Framework_TestCase
 {

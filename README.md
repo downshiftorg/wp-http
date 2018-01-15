@@ -1,4 +1,4 @@
-# WordPress Http Request/Response [![Build Status](https://travis-ci.org/netrivet/wp-http.svg?branch=master)](https://travis-ci.org/netrivet/wp-http)
+# WordPress Http Request/Response [![Build Status](https://travis-ci.org/downshiftorg/wp-http.svg?branch=master)](https://travis-ci.org/downshiftorg/wp-http)
 
 Provides a consistent, object-oriented API for making HTTP requests and receiving responses in the WordPress ecosystem. Provides a thin wrapper around the `WP_Http` class and then normalizes the return values of the internal `WP_Http::request` method to return a Psr7-ish, Guzzle-ish, modern-ish `Response` object, which does not exist in WordPress.
 
@@ -7,7 +7,7 @@ Provides a consistent, object-oriented API for making HTTP requests and receivin
 ```php
 <?php
 
-use NetRivet\WordPress\Http\Request;
+use DownShift\WordPress\Http\Request;
 
 $request  = new Request();
 $response = $request->get('http://api.yolo.com/status');
@@ -37,7 +37,7 @@ $request->postJson('http://api.yolo.com/neckbeard', [
 Install the latest version with
 
 ```
-$ composer require netrivet/wp-http
+$ composer require downshiftorg/wp-http
 ```
 
 ## Tests

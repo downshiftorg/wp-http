@@ -1,6 +1,6 @@
 <?php
 
-namespace NetRivet\WordPress\Http;
+namespace DownShift\WordPress\Http;
 
 class Response implements ResponseInterface
 {
